@@ -17,9 +17,14 @@ def check_server(address, port):
         s.close()
 
 def main():
-    addr = '80.68.253.13'
-    port = 80
-    check = check_server(addr, port)
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("addr", help="IP address of the server")
+    parser.add_argument("portnum", help="port number")
+    args = parser.parse_args()
+#    addr = '80.68.253.13'
+#    port = 80
+    check = check_server(args.addr, int(args.portnum))
 
 if __name__ == '__main__':
     main()
